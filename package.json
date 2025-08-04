@@ -1,0 +1,25 @@
+{
+  "name": "ecommerce-sdk",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsup src --format esm,cjs --out-dir dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "exports": {
+    ".": "./dist/index.js",
+    "./product": "./dist/hooks/products/index.js"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-hook-form": "^7.59.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.2"
+  }
+}

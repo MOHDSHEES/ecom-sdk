@@ -1,0 +1,21 @@
+# Source code (since you're publishing build only)
+src/
+
+# Config files not needed in package
+tsup.config.js
+*.config.js
+*.test.js
+*.test.jsx
+*.spec.js
+*.spec.jsx
+
+# Git files
+.gitignore
+.git/
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Logs
+*.log

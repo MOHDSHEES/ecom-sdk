@@ -1,16 +1,17 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["src/index.js"],
+  entry: ["src/index.js"], // keep this if it's the main entry
   outDir: "dist",
-  format: ["esm"], // Just ES modules — Next.js can handle it
+  format: ["esm", "cjs"], // export both for compatibility
   dts: true,
   clean: true,
-  bundle: false, // Do NOT bundle — keep source files as is
-  splitting: false,
-  jsx: "preserve", // Keep JSX, Next.js will compile it
+  bundle: false,
   sourcemap: true,
+  splitting: false,
+  jsx: "preserve", // ✅ leave JSX for Next.js to compile
   loader: {
-    ".js": "jsx", // this tells esbuild to parse .js files as JSX
+    ".js": "jsx", // ✅ needed for JSX in .js files (if any remain)
+    ".jsx": "jsx", // ✅ needed for JSX in .jsx files
   },
 });

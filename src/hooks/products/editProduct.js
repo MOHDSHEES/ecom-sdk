@@ -7,7 +7,7 @@ import { editProductService } from "../../services/products/editProductService";
 import { useProductsContext } from "../../context/productContext";
 
 export const editProduct = (productId) => {
-  const { editProduct } = useProductsContext();
+  const { editProduct: editProductContext } = useProductsContext();
   const [loading, setLoading] = useState(true);
   const [productData, setProductData] = useState(null);
   const [fetchError, setFetchError] = useState(null);
@@ -34,7 +34,7 @@ export const editProduct = (productId) => {
   const onSubmit = async (formData) => {
     // const modifiedData = await runHook("onBeforeProductEdit", formData);
     const { data: result, error } = await editProductService(formData);
-    if (result?.success) editProduct(result.product);
+    if (result?.success) editProductContext(result.product);
     // await runHook("onAfterProductEdit", result);
     return { result, error };
   };

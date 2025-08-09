@@ -1,4 +1,5 @@
 // src/services/productServices.js
+import { BASE_URL } from "../../../env";
 
 export const getProductServices = async ({
   page = 1,
@@ -6,6 +7,8 @@ export const getProductServices = async ({
   filters = {},
 } = {}) => {
   try {
+    // console.log("in getProductServices", { page, limit, filters });
+
     const res = await fetch(`${BASE_URL}/api/products/get`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -26,6 +29,6 @@ export const getProductServices = async ({
 
     return { data };
   } catch (err) {
-    return { error: "Network/server error" };
+    return { error: err };
   }
 };

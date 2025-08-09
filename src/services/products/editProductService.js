@@ -1,3 +1,5 @@
+import { BASE_URL } from "../../../env";
+
 export const editProductService = async (formData) => {
   try {
     const res = await fetch(`${BASE_URL}/api/products/update/${formData.id}`, {

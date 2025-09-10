@@ -14,6 +14,8 @@ export const editProductService = async (formData) => {
     }
 
     const data = await res.json();
+    // console.log(data);
+
     return { data };
   } catch (err) {
     return { error: err };

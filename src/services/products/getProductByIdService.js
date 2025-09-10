@@ -10,6 +10,8 @@ export const getProductByIdService = async (id) => {
       return { error: error.message };
     }
     const data = await res.json();
+    // console.log(data);
+
     return { data };
   } catch (err) {
     return { error: err };

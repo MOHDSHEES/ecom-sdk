@@ -20,7 +20,10 @@ export const editProduct = (productId) => {
       setLoading(true);
       const { data, error } = await getProductByIdService(productId);
       if (data) {
-        setProductData(data);
+        // console.log(data.product);
+
+        setProductData(data.product);
+
         methods.reset(data.product); // populate form
       } else {
         setFetchError(error || "Failed to fetch product");
@@ -42,7 +45,7 @@ export const editProduct = (productId) => {
     if (data) {
       // If data is passed, reset with it
       methods.reset(data);
-    } else if (productData && productData.product) {
+    } else if (productData) {
       // If no data passed, reset with stored product data
       methods.reset(productData.product);
     } else {

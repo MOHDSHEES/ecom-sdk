@@ -1,6 +1,6 @@
 {
   "name": "ecom-sdk",
-  "version": "1.0.5",
+  "version": "1.0.9",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,7 +13,9 @@
   "exports": {
     ".": "./dist/index.js",
     "./product": "./dist/hooks/products/index.js",
-    "./categories": "./dist/hooks/categories/index.js"
+    "./context": "./dist/context/index.js",
+    "./categories": "./dist/hooks/categories/index.js",
+    "./orders": "./dist/hooks/orders/index.js"
   },
   "peerDependencies": {
     "react": "^18.0.0",

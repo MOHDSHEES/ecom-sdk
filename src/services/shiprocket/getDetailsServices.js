@@ -1,0 +1,30 @@
+// src/services/productServices.js
+import { BASE_URL } from "../../../env";
+
+export const getDetailsServices = async ({ id, type }) => {
+  //   if (!shipment_id) {
+  //     throw new Error("shipment_id is required");
+  //   }
+  //   console.log(userId);
+  try {
+    const res = await fetch(`${BASE_URL}/api/shiprocket/getDetails`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        id,
+        type,
+      }),
+    });
+    // console.log(res);
+
+    if (!res.ok) {
+      const error = await res.json();
+      return { error: error.message };
+    }
+    const data = await res.json();
+
+    return { data: data };
+  } catch (err) {
+    return { error: err };
+  }
+};

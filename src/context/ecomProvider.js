@@ -3,6 +3,7 @@
 
 import { OrdersProvider } from "./orderContext";
 import { ProductsProvider } from "./productContext";
+import { VendorProvider } from "./vendorContext";
 
 export const EcomProvider = ({ children }) => {
   return (
@@ -10,7 +11,9 @@ export const EcomProvider = ({ children }) => {
     // <UserProvider>
     // <CartProvider>
     <OrdersProvider>
-      <ProductsProvider>{children}</ProductsProvider>
+      <ProductsProvider>
+        <VendorProvider>{children}</VendorProvider>
+      </ProductsProvider>
     </OrdersProvider>
     // </CartProvider>
     // </UserProvider>

@@ -16,7 +16,8 @@
     "./context": "./dist/context/index.js",
     "./categories": "./dist/hooks/categories/index.js",
     "./orders": "./dist/hooks/orders/index.js",
-    "./shiprocket": "./dist/hooks/shiprocket/index.js"
+    "./shiprocket": "./dist/hooks/shiprocket/index.js",
+    "./vendors": "./dist/hooks/vendors/index.js"
   },
   "peerDependencies": {
     "react": "^18.0.0",

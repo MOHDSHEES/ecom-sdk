@@ -25,7 +25,7 @@ export const useShiprocketActions = () => {
       data,
       pickup_date,
     });
-    console.log(result, error);
+    // console.log(result, error);
 
     if (error) {
       throw new Error(error);
@@ -42,7 +42,7 @@ export const useShiprocketActions = () => {
       courier_id,
       pickup_date,
     });
-    console.log(result, error);
+    // console.log(result, error);
 
     if (error) {
       throw new Error(error);

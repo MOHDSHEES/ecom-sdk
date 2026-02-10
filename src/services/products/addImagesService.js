@@ -1,5 +1,6 @@
 import imageCompression from "browser-image-compression";
-import { BASE_URL } from "../../../env";
+// import { BASE_URL } from "../../../env";
+import { getGlobalConfig } from "../../config/sdkConfig";
 
 export async function uploadImagesService({
   files,
@@ -10,6 +11,13 @@ export async function uploadImagesService({
   onProgress,
   onMessage,
 }) {
+  const { baseUrl: BASE_URL } = getGlobalConfig();
+  if (!BASE_URL) {
+    return {
+      error:
+        "Base URL is not defined. Please provide it in the SDK configuration.",
+    };
+  }
   if (!files || files.length === 0) {
     throw new Error("No files provided for upload");
   }

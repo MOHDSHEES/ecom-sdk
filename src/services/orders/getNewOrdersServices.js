@@ -1,11 +1,19 @@
 // src/services/productServices.js
-import { BASE_URL } from "../../../env";
+// import { BASE_URL } from "../../../env";
+import { getGlobalConfig } from "../../config/sdkConfig";
 
 export const getNewOrdersServices = async ({
   page = 1,
   limit = 10,
   filters = {},
 } = {}) => {
+  const { baseUrl: BASE_URL } = getGlobalConfig();
+  if (!BASE_URL) {
+    return {
+      error:
+        "Base URL is not defined. Please provide it in the SDK configuration.",
+    };
+  }
   //   console.log(userId);
   try {
     const res = await fetch(`${BASE_URL}/api/order/getNewOrders`, {

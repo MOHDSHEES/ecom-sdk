@@ -1,8 +1,15 @@
 // src/services/productServices.js
-import { BASE_URL } from "../../../env";
+// import { BASE_URL } from "../../../env";
+import { getGlobalConfig } from "../../config/sdkConfig";
 export const updateOrderServices = async ({ order_id, updated_data }) => {
   //   console.log(userId);
-
+  const { baseUrl: BASE_URL } = getGlobalConfig();
+  if (!BASE_URL) {
+    return {
+      error:
+        "Base URL is not defined. Please provide it in the SDK configuration.",
+    };
+  }
   try {
     if (!order_id) {
       return { error: " Order Id is required" };

@@ -1,6 +1,14 @@
-import { BASE_URL } from "../../../env";
+// import { BASE_URL } from "../../../env";
+import { getGlobalConfig } from "../../config/sdkConfig";
 
 export const editProductService = async (formData) => {
+  const { baseUrl: BASE_URL } = getGlobalConfig();
+  if (!BASE_URL) {
+    return {
+      error:
+        "Base URL is not defined. Please provide it in the SDK configuration.",
+    };
+  }
   try {
     const res = await fetch(`${BASE_URL}/api/products/update/${formData.id}`, {
       method: "POST",

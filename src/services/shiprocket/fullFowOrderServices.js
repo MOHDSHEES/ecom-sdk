@@ -1,7 +1,15 @@
 // src/services/shiprocket/fullFlowServices.js
-import { BASE_URL } from "../../../env";
+// import { BASE_URL } from "../../../env";
+import { getGlobalConfig } from "../../config/sdkConfig";
 
 export const createFullFlowOrderService = async ({ data, pickup_date }) => {
+  const { baseUrl: BASE_URL } = getGlobalConfig();
+  if (!BASE_URL) {
+    return {
+      error:
+        "Base URL is not defined. Please provide it in the SDK configuration.",
+    };
+  }
   if (!data) {
     return { error: "Order data is required" };
   }

@@ -3,3 +3,4 @@ export { OrdersProvider, useOrdersContext } from "./orderContext";
 export { ProductsProvider, useProductsContext } from "./productContext";
 export { VendorProvider, useVendorContext } from "./vendorContext";
 export { ConfigProvider, useSDKConfig } from "./configProvider";
+export { registryProvider, useRegistry } from "./registryProvider";

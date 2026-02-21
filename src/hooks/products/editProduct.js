@@ -37,7 +37,16 @@ export const editProduct = (productId) => {
   const onSubmit = async (formData) => {
     // const modifiedData = await runHook("onBeforeProductEdit", formData);
     const { data: result, error } = await editProductService(formData);
-    if (result?.success) editProductContext(result.product);
+    // console.log(result);
+
+    if (result?.success) {
+      const updatedProduct = result.product;
+      // console.log(updatedProduct);
+
+      methods.reset(updatedProduct);
+      setProductData(updatedProduct);
+      editProductContext(updatedProduct);
+    }
     // await runHook("onAfterProductEdit", result);
     return { result, error };
   };

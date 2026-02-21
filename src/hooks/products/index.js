@@ -6,3 +6,4 @@ export {
   ProductsProvider,
   useProductsContext,
 } from "../../context/productContext";
+export { getFilteredProducts } from "./getFilteredProducts";
